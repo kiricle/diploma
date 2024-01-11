@@ -1,0 +1,13 @@
+@import '/src/app/scss-functions.scss';
+
+.label {
+    display: flex;
+    gap: toRem(6);
+    font-size: toRem(18);
+}
+
+.checkbox {
+    accent-color: var(--black);
+    width: toRem(24);
+    height: toRem(24);
+}
