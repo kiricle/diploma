@@ -6,6 +6,7 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <Button appearance="primary">Button</Button>
+            <Button appearance="secondary">Button</Button>
         </main>
     );
 }

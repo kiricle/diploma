@@ -9,5 +9,9 @@ export const Button = ({
     appearance: Appearance;
     children: ReactNode;
 }) => {
-    return <button className={styles.button + ' ' + styles.primary}>{children}</button>;
+    return (
+        <button className={styles.button + ' ' + styles[appearance]}>
+            {children}
+        </button>
+    );
 };
