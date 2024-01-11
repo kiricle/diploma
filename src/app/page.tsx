@@ -7,6 +7,7 @@ export default function Home() {
         <main className={styles.main}>
             <Button appearance="primary">Button</Button>
             <Button appearance="secondary">Button</Button>
+            <Button appearance="danger">Button</Button>
         </main>
     );
 }
