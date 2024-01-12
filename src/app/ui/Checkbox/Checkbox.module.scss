@@ -2,12 +2,17 @@
 
 .label {
     display: flex;
-    gap: toRem(6);
-    font-size: toRem(18);
+    gap: toRem(8);
+    font-size: toRem(20);
+    align-items: center;
+
+    cursor: pointer;
 }
 
 .checkbox {
     accent-color: var(--black);
     width: toRem(24);
     height: toRem(24);
+
+    cursor: pointer;
 }
