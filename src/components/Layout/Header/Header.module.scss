@@ -1,0 +1,60 @@
+@import '/src/app/scss-functions.scss';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: toRem(5) toRem(15);
+}
+
+.column {
+    display: flex;
+    align-items: center;
+    gap: toRem(10);
+}
+
+.navigation {
+    display: flex;
+    gap: toRem(10);
+
+    &>a {
+        position: relative;
+        font-size: toRem(20);
+
+    }
+
+    &>a::after {
+        content: '';
+        display: block;
+        background-color: var(--black);
+        width: 100%;
+        height: 2px;
+
+        transition: .3s transform;
+        transform: scaleX(0);
+        transform-origin: center;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    &>a:hover::after {
+        transform: scaleX(1);
+        animation: 1s idling .3s infinite linear;
+    }
+}
+
+@keyframes idling {
+    0% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(.75);
+
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
