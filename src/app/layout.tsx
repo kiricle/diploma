@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Patrick_Hand } from 'next/font/google';
 import './globals.scss';
+import { Header } from '@/components/Layout/Header/Header';
 
 const patrickHand = Patrick_Hand({ subsets: ['latin'], weight: ['400'] });
 
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={patrickHand.className}>{children}</body>
+            <body className={patrickHand.className}>
+                <Header />
+                {children}
+            </body>
         </html>
     );
 }
