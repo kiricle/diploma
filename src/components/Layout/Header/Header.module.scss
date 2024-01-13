@@ -40,7 +40,7 @@
 
     &>a:hover::after {
         transform: scaleX(1);
-        animation: 1s idling .3s infinite;
+        animation: 1s idling .3s infinite linear;
     }
 }
 
