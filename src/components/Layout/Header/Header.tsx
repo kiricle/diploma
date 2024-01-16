@@ -26,7 +26,7 @@ export const Header = () => {
                 </Link>
                 <nav className={styles.navigation}>
                     {links.map((link) => (
-                        <a href={link.href}>{link.name}</a>
+                        <a key={link.href} href={link.href}>{link.name}</a>
                     ))}
                 </nav>
             </div>

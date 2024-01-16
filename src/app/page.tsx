@@ -1,8 +1,3 @@
-import styles from './page.module.scss';
+import { HomePage } from '@/pages/home/HomePage';
 
-export default function Home() {
-    return (
-        <main className={styles.main}>
-        </main>
-    );
-}
+export default HomePage;
