@@ -1,0 +1,28 @@
+.product {
+    max-width: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid gainsboro;
+    padding-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.img-container {
+    position: relative;
+    aspect-ratio: 5 / 4.5;
+    width: 100%;
+}
