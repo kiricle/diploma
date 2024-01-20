@@ -7,7 +7,12 @@ export const HomePage = () => {
     return (
         <main className={styles.main}>
             <Categories />
-            <Product href='#' price={5000} src={Img} title='Some title' />
+            <Product
+                href="#"
+                price={5000}
+                src={Img}
+                title="Some title"
+            />
         </main>
     );
 };
