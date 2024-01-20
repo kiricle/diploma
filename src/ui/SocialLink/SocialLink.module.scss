@@ -1,0 +1,28 @@
+.link {
+    max-width: 235px;
+    text-align: center;
+    padding: 5px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: #F6F6F6;
+
+    text-transform: uppercase;
+
+    transition: .3s color, .3s background-color;
+}
+
+.instagram {
+
+    &:hover {
+        color: white;
+        background-color: #FF7BBB;
+    }
+}
+
+.telegram {
+
+    &:hover {
+        background-color: #68D6FD;
+        color: white;
+    }
+}
