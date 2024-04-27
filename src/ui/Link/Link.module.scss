@@ -1,29 +1,10 @@
 @import '/src/app/scss-functions.scss';
 
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: toRem(5) toRem(15);
-}
+.link {
+    position: relative;
+    font-size: toRem(20);
 
-.column {
-    display: flex;
-    align-items: center;
-    gap: toRem(10);
-}
-
-.navigation {
-    display: flex;
-    gap: toRem(10);
-
-    &>a {
-        position: relative;
-        font-size: toRem(20);
-
-    }
-
-    &>a::after {
+    &::after {
         content: '';
         display: block;
         background-color: var(--black);
@@ -39,9 +20,14 @@
         left: 0;
     }
 
-    &>a:hover::after {
+    &:hover::after {
         transform: scaleX(1);
         animation: 1s idling .3s infinite linear;
+    }
+
+    &:active {
+        transform: scaleX(1);
+        animation: unset;
     }
 }
 
