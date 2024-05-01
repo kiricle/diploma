@@ -3,8 +3,17 @@ import { saveTokenStorage, removeFromStorage } from './tokens.service';
 
 export const authService = {
     // !TODO change data type
-    async main(type: 'login' | 'register', data: any) {
-        const response = await axiosClassic.post<any>(`/auth/${type}`, data);
+    async login(data: any) {
+        const response = await axiosClassic.post<any>(`/auth/login`, data);
+
+        const { accessToken } = response.data;
+        if (accessToken) saveTokenStorage(accessToken);
+
+        return response;
+    },
+
+    async register(data:any) {
+        const response = await axiosClassic.post<any>(`/auth/register`, data);
 
         const { accessToken } = response.data;
         if (accessToken) saveTokenStorage(accessToken);

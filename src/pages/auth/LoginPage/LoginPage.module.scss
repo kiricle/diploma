@@ -1,0 +1,8 @@
+.main {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding: 10px;
+    display: grid;
+    place-content: center;
+    gap: 10px;
+}

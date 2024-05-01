@@ -2,12 +2,12 @@
 import { Button } from '@/ui/Button/Button';
 import { Input } from '@/ui/Input/Input';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import styles from './RegisterPage.module.scss';
+import styles from './LoginPage.module.scss';
 import { useMutation } from '@tanstack/react-query';
 import { authService } from '@/services/auth.service';
 import { useRouter } from 'next/navigation';
 
-export const RegisterPage = () => {
+export const LoginPage = () => {
     // !TODO make separate type
     const { register, handleSubmit, reset } = useForm<{
         email: string;
@@ -16,24 +16,25 @@ export const RegisterPage = () => {
         mode: 'onChange',
     });
 
+    const { push } = useRouter();
+
     // !TODO types
     const { mutate } = useMutation({
         mutationKey: ['auth'],
-        mutationFn: (data: any) => authService.register(data),
-        onSuccess() {
-            push('/login');
+        mutationFn: (data: any) => authService.login(data),
+        onSuccess: () => {
+            push('/c/');
         },
         onError(error) {
             console.log(error);
         },
     });
 
-    const { push } = useRouter();
-
     const onSubmit: SubmitHandler<{ email: string; password: string }> = (
         data
     ) => {
         mutate(data);
+        reset();
     };
 
     return (
@@ -51,7 +52,7 @@ export const RegisterPage = () => {
                     register={register}
                     name="password"
                 />
-                <Button appearance="primary">Register</Button>
+                <Button appearance="primary">Login</Button>
             </form>
         </main>
     );

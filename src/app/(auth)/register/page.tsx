@@ -1,3 +1,3 @@
-import { RegisterPage } from '@/pages/auth/RegisterPage/RegisterPage';
+import { RegisterPage } from '@/pages/auth';
 
 export default RegisterPage;
