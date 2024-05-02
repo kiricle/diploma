@@ -6,6 +6,7 @@ import styles from './LoginPage.module.scss';
 import { useMutation } from '@tanstack/react-query';
 import { authService } from '@/services/auth.service';
 import { useRouter } from 'next/navigation';
+import { AuthLink } from '../ui/AuthLink/AuthLink';
 
 export const LoginPage = () => {
     // !TODO make separate type
@@ -39,7 +40,7 @@ export const LoginPage = () => {
 
     return (
         <main className={styles.main}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     content="Email"
                     type="email"
@@ -52,6 +53,9 @@ export const LoginPage = () => {
                     register={register}
                     name="password"
                 />
+                <AuthLink href="/register">
+                    Don't have an account? Sign up here!
+                </AuthLink>
                 <Button appearance="primary">Login</Button>
             </form>
         </main>

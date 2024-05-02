@@ -6,6 +6,7 @@ import styles from './RegisterPage.module.scss';
 import { useMutation } from '@tanstack/react-query';
 import { authService } from '@/services/auth.service';
 import { useRouter } from 'next/navigation';
+import { AuthLink } from '../ui/AuthLink/AuthLink';
 
 export const RegisterPage = () => {
     // !TODO make separate type
@@ -38,7 +39,7 @@ export const RegisterPage = () => {
 
     return (
         <main className={styles.main}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     content="Email"
                     type="email"
@@ -51,6 +52,7 @@ export const RegisterPage = () => {
                     register={register}
                     name="password"
                 />
+                <AuthLink href="/login">Already have an account?</AuthLink>
                 <Button appearance="primary">Register</Button>
             </form>
         </main>
