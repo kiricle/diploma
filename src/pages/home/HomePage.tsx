@@ -1,10 +1,11 @@
-import { MyLink } from '@/ui/Link/Link';
+import Link from 'next/link';
 import styles from './Home.module.scss';
 
 export const HomePage = () => {
     return (
         <main className={styles.main}>
-            <MyLink href="/">Some</MyLink>
+            Home
+            <Link href={'/register'}>Register</Link>
         </main>
     );
 };
