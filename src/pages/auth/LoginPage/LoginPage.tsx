@@ -9,20 +9,15 @@ import { useRouter } from 'next/navigation';
 import { AuthLink } from '../ui/AuthLink/AuthLink';
 
 export const LoginPage = () => {
-    // !TODO make separate type
-    const { register, handleSubmit, reset } = useForm<{
-        email: string;
-        password: string;
-    }>({
+    const { register, handleSubmit, reset } = useForm<AuthForm>({
         mode: 'onChange',
     });
 
     const { push } = useRouter();
 
-    // !TODO types
     const { mutate } = useMutation({
         mutationKey: ['auth'],
-        mutationFn: (data: any) => authService.login(data),
+        mutationFn: (data: AuthForm) => authService.login(data),
         onSuccess: () => {
             push('/c/');
         },
@@ -31,7 +26,7 @@ export const LoginPage = () => {
         },
     });
 
-    const onSubmit: SubmitHandler<{ email: string; password: string }> = (
+    const onSubmit: SubmitHandler<AuthForm> = (
         data
     ) => {
         mutate(data);
