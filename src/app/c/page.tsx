@@ -1,3 +1,3 @@
-export default function PrivatePage() {
-    return <main>Private Page</main>;
-}
+import { DashboardPage } from '@/pages/dashboard';
+
+export default DashboardPage;
