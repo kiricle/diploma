@@ -8,7 +8,9 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 
     const isAuthPage = url.includes('/login') || url.includes('/register');
 
-    if (isAuthPage && refreshToken) {
+    const isHomePage = url === 'http://localhost:3000/';
+
+    if ((isAuthPage || isHomePage) && refreshToken) {
         return NextResponse.redirect(new URL('/c', url));
     }
 
@@ -24,5 +26,5 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 }
 
 export const config = {
-    matcher: ['/c/:path*', '/login', '/register'],
+    matcher: ['/c/:path*', '/login', '/register', '/'],
 };
