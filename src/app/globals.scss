@@ -25,12 +25,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  font-family: 'Patric Hand', cursive;
 }
 
 main {
   flex-grow: 1;
-  width: 100%;
 }
 
 a {

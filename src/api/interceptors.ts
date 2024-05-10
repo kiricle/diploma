@@ -1,3 +1,4 @@
+import { authService } from '@/services/auth.service';
 import { removeFromStorage } from './../services/tokens.service';
 import { errorCatch } from './error';
 import { getAccessToken } from '@/services/tokens.service';
