@@ -2,7 +2,8 @@
     padding: 20px;
     padding-top: 10px;
     padding-left: 10px;
-    background-color: lightskyblue;
+    background: rgb(211, 135, 52);
+    background: linear-gradient(322deg, rgba(211, 135, 52, 1) 0%, rgba(132, 52, 37, 1) 31%);
     color: white;
     width: 200px;
     height: 100px;
@@ -12,4 +13,32 @@
     font-size: 18px;
 
     text-align: left;
+
+    transition: .3s scale;
+
+    overflow: hidden;
+
+    &:hover {
+        scale: 1.1;
+    }
+
+    &:nth-of-type(2n) {
+        background: rgb(71, 81, 98);
+        background: linear-gradient(140deg, rgba(71, 81, 98, 1) 0%, rgba(13, 30, 57, 1) 82%);
+    }
+
+    &:nth-of-type(3n) {
+        background: rgb(211, 135, 52);
+        background: linear-gradient(322deg, rgba(211, 135, 52, 1) 0%, rgba(174, 70, 41, 1) 50%);
+    }
+
+    &:nth-of-type(4n) {
+        background: rgb(2, 7, 15);
+        background: linear-gradient(322deg, rgba(2, 7, 15, 1) 0%, rgba(13, 30, 57, 1) 47%);
+    }
+
+    &:nth-of-type(5n) {
+        background: rgb(71,81,98);
+        background: linear-gradient(140deg, rgba(71,81,98,1) 36%, rgba(101,2,37,1) 100%);
+    }
 }

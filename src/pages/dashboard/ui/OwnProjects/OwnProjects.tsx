@@ -4,6 +4,7 @@ import { Heading } from '@/ui/Heading/Heading';
 import { useQuery } from '@tanstack/react-query';
 import { ProjectCard } from '../ProjectCard/ProjectCard';
 import styles from './OwnProjects.module.scss';
+import { CreateProjectCard } from '../CreateProjectCard/CreateProjectCard';
 
 export const OwnProjects = () => {
     const { data, isPending, error, isError } = useQuery({
@@ -33,9 +34,10 @@ export const OwnProjects = () => {
                     key={id}
                     className={styles.card}
                     name={name}
-                    href={`${id}`}
+                    href={`c/project/${id}`}
                 />
             ))}
+            <CreateProjectCard />
         </div>
     );
 };

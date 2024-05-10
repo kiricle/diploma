@@ -20,8 +20,6 @@ export const CollaboratorProjects = () => {
         return <h1>{error.message}</h1>;
     }
 
-    console.log(data);
-
     return (
         <div className={styles.projects_container}>
             <Heading
@@ -35,9 +33,17 @@ export const CollaboratorProjects = () => {
                     key={id}
                     className={styles.card}
                     name={name}
-                    href={`${id}`}
+                    href={`c/project/${id}`}
                 />
             ))}
+            {data?.length === 0 && (
+                <Heading
+                    level={4}
+                    className={styles.light}
+                >
+                    Seems like you don't have projects you are collaborating yet
+                </Heading>
+            )}
         </div>
     );
 };

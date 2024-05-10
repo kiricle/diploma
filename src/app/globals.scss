@@ -23,6 +23,13 @@ body {
 
 body {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Patric Hand', cursive;
+}
+
+main {
+  flex-grow: 1;
 }
 
 a {
