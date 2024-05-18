@@ -18,7 +18,16 @@ export const projectService = {
     },
 
     async createNewProject(data: CreateProjectForm) {
-        const response = await axiosWithAuth.post<CreateProjectForm>('/projects/create', data);
+        const response = await axiosWithAuth.post<CreateProjectForm>(
+            '/projects/create',
+            data
+        );
+
+        return response.data;
+    },
+
+    async getProjectInfo(id: number) {
+        const response = await axiosWithAuth.get<Project>(`/projects/${id}`);
 
         return response.data;
     },
