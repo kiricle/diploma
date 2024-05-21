@@ -31,4 +31,13 @@ export const projectService = {
 
         return response.data;
     },
+
+    async createColumn(data: CreateColumn) {
+        const response = await axiosWithAuth.post<CreateColumn>(
+            '/projects/column',
+            data
+        );
+
+        return response.data;
+    },
 };

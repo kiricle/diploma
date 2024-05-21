@@ -1,8 +1,8 @@
 interface Task {
-    id:number;
+    id: number;
     createdAt: Date;
     updateAt: Date;
-    columnId:number;
+    columnId: number;
     title: string;
 }
 
@@ -11,7 +11,12 @@ interface Column {
     order: number;
     title: string;
     tasks: Task[];
+    projectId: number;
 }
+
+type CreateColumn = Pick<Column, 'order' | 'projectId' | 'title'>;
+
+type CreateColumnForm = Pick<Column, 'title'>;
 
 interface Project {
     id: number;

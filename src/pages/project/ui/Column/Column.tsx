@@ -1,12 +1,14 @@
+import { Button } from '@/ui/Button/Button';
 import { Heading } from '@/ui/Heading/Heading';
 import styles from './Column.module.scss';
 
-export const Column = ({ title, tasks }: Column) => {
+export const Column = ({ id, order, title, tasks, projectId }: Column) => {
+
     return (
         <div className={styles.column}>
             <Heading
                 className={styles.heading}
-                level={2}
+                level={4}
             >
                 {title}
             </Heading>
@@ -15,9 +17,16 @@ export const Column = ({ title, tasks }: Column) => {
                     key={task.id}
                     className={styles.task}
                 >
-                    <Heading level={3}>{task.title}</Heading>
+                    <Heading level={5}>{task.title}</Heading>
                 </div>
             ))}
+
+            <Button
+                onClick={() => undefined}
+                appearance="secondary"
+            >
+                Create task
+            </Button>
         </div>
     );
 };
