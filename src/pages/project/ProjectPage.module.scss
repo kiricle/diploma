@@ -4,6 +4,9 @@
     height: 100%;
     padding-block: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 150px;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+    overflow-x: auto;
+    padding-inline: 10px;
 }

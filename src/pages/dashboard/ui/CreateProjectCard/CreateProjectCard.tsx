@@ -1,11 +1,10 @@
 import { ModalWindow } from '@/components/ModalWindow/ModalWindow';
 import { useModal } from '@/hooks/useModal';
 import { projectService } from '@/services/project.service';
-import { Heading } from '@/ui/Heading/Heading';
-import { useMutation, useQuery } from '@tanstack/react-query';
-import styles from './CreateProjectCard.module.scss';
 import { Input } from '@/ui/Input/Input';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import styles from './CreateProjectCard.module.scss';
 
 export const CreateProjectCard = () => {
     const { refetch } = useQuery({
@@ -41,21 +40,22 @@ export const CreateProjectCard = () => {
             >
                 Create Project
             </button>
-            {visible && (
-                <ModalWindow
-                    onClose={close}
-                    onSubmit={handleSubmit(onSubmit)}
-                >
-                    <form>
-                        <Input
-                            name="name"
-                            register={register}
-                            content="Project name"
-                            type="text"
-                        />
-                    </form>
-                </ModalWindow>
-            )}
+
+            <ModalWindow
+                title="Create project"
+                visible={visible}
+                onClose={close}
+                onSubmit={handleSubmit(onSubmit)}
+            >
+                <form>
+                    <Input
+                        name="name"
+                        register={register}
+                        content="Project name"
+                        type="text"
+                    />
+                </form>
+            </ModalWindow>
         </>
     );
 };

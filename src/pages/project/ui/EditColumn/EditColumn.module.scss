@@ -1,0 +1,28 @@
+.edit {
+    background-color: transparent;
+    display: flex;
+    border: none;
+    gap: 4px;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 15px 5px;
+    
+    transition: .3s background-color;
+    &:hover {
+        background-color: rgb(222, 222, 222);
+    }
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--black);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
