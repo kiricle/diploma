@@ -1,0 +1,12 @@
+.main {
+    max-width: min(1440px, 95%);
+    margin-inline: auto;
+    height: 100%;
+    padding-block: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+    overflow-x: auto;
+    padding-inline: 10px;
+}

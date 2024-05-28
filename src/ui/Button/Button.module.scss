@@ -1,0 +1,44 @@
+.button {
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-size: 22px;
+    font-family: inherit;
+    transition: .3s background-color;
+    border-style: solid;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        filter: brightness(.9);
+    }
+}
+
+.primary {
+    background-color: var(--black);
+    color: white;
+
+    &:hover {
+        background-color: rgb(67, 43, 43);
+    }
+}
+
+.secondary {
+    color: black;
+    background-color: white;
+
+    &:hover {
+        background-color: rgb(207, 207, 207);
+    }
+}
+
+.danger {
+    background-color: #C82333;
+    color: white;
+    border-color: #C82333;
+
+    &:hover {
+        background-color: #af1d2b;
+    }
+}

@@ -1,0 +1,47 @@
+@import '/src/app/scss-functions.scss';
+
+.link {
+    position: relative;
+    font-size: toRem(20);
+
+    &::after {
+        content: '';
+        display: block;
+        background-color: var(--black);
+        width: 100%;
+        height: 2px;
+
+        transition: .3s transform;
+        transform: scaleX(0);
+        transform-origin: center;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+        animation: 1s idling .3s infinite linear;
+    }
+
+    &:active {
+        transform: scaleX(1);
+        animation: unset;
+    }
+}
+
+@keyframes idling {
+    0% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(.75);
+
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
