@@ -8,10 +8,15 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
     children: ReactNode;
 }
 
-export const Button = ({ appearance, children, ...props }: ButtonProps) => {
+export const Button = ({
+    appearance,
+    children,
+    className,
+    ...props
+}: ButtonProps) => {
     return (
         <button
-            className={styles.button + ' ' + styles[appearance]}
+            className={[styles.button, styles[appearance], className].join(' ')}
             {...props}
         >
             {children}

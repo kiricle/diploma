@@ -11,14 +11,16 @@ export const ModalWindow = ({
     onSubmit,
     children,
     title,
+    contentClassName,
 }: {
     visible: boolean;
     onClose: () => void;
     onSubmit: () => void;
     children: ReactNode;
     title: string;
+    contentClassName?: string;
 }) => {
-    if (!visible) return null;  
+    if (!visible) return null;
 
     return (
         <Portal target="body">
@@ -39,7 +41,11 @@ export const ModalWindow = ({
                             X
                         </button>
                     </div>
-                    <div className={styles.content}>{children}</div>
+                    <div
+                        className={[styles.content, contentClassName].join(' ')}
+                    >
+                        {children}
+                    </div>
                     <div className={styles.buttons}>
                         <Button
                             onClick={onClose}
