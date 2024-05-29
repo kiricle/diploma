@@ -4,7 +4,7 @@ import styles from './Column.module.scss';
 import { EditColumn } from '../EditColumn/EditColumn';
 import { Task } from '../Task/Task';
 
-export const Column = ({ id, title, tasks, projectId }: Column) => {
+export const Column = ({ id, order, title, tasks, projectId }: Column) => {
     const sortedTasks = tasks.toSorted((a, b) => a.order - b.order);
 
     return (
@@ -14,6 +14,7 @@ export const Column = ({ id, title, tasks, projectId }: Column) => {
                 level={4}
             >
                 {title}
+                order:{order}
                 <EditColumn
                     initialTitle={title}
                     id={id}

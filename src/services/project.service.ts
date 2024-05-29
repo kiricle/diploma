@@ -61,6 +61,15 @@ export const projectService = {
         return response.data;
     },
 
+    async changeColumnOrder(data: ChangeColumnOrder) {
+        const response = await axiosWithAuth.patch<ChangeColumnOrder>(
+            'projects/column-order',
+            data
+        );
+
+        return response.data;
+    },
+
     async createTask(data: CreateTask) {
         const response = await axiosWithAuth.post<CreateTask>(
             '/projects/task',
