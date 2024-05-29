@@ -36,6 +36,11 @@ type UpdateColumnForm = Pick<Column, 'title'>;
 
 type DeleteColumn = Pick<Column, 'id' | 'projectId'>;
 
+interface ChangeColumnOrder {
+    id: number;
+    newOrder: number;
+} 
+
 interface Project {
     id: number;
     name: string;
