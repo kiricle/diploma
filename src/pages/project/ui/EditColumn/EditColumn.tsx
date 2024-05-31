@@ -1,12 +1,12 @@
-import { useModal } from '@/hooks/useModal';
-import styles from './EditColumn.module.scss';
 import { ModalWindow } from '@/components/ModalWindow/ModalWindow';
+import { useModal } from '@/hooks/useModal';
+import { columnService } from '@/services/column.service';
 import { Input } from '@/ui/Input/Input';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { projectService } from '@/services/project.service';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { DeleteColumn } from '../DeleteColumn/DeleteColumn';
+import styles from './EditColumn.module.scss';
 
 export const EditColumn = ({
     initialTitle,
@@ -27,7 +27,7 @@ export const EditColumn = ({
 
     const { mutate: updateColumn } = useMutation({
         mutationKey: ['column-update'],
-        mutationFn: (data: UpdateColumn) => projectService.updateColumn(data),
+        mutationFn: (data: UpdateColumn) => columnService.updateColumn(data),
         onSuccess: () => queryClient.refetchQueries({ queryKey: ['project'] }),
     });
 

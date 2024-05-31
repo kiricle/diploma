@@ -1,12 +1,12 @@
-import { Heading } from '@/ui/Heading/Heading';
-import styles from './Task.module.scss';
-import { useModal } from '@/hooks/useModal';
 import { ModalWindow } from '@/components/ModalWindow/ModalWindow';
+import { useModal } from '@/hooks/useModal';
+import { taskService } from '@/services/task.service';
+import { Heading } from '@/ui/Heading/Heading';
 import { Input } from '@/ui/Input/Input';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { projectService } from '@/services/project.service';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { DeleteTask } from '../DeleteTask/DeleteTask';
+import styles from './Task.module.scss';
 
 export const Task = (task: Task) => {
     const { close, show, visible } = useModal();
@@ -17,7 +17,7 @@ export const Task = (task: Task) => {
 
     const { mutate } = useMutation({
         mutationKey: ['task-update'],
-        mutationFn: (data: UpdateTask) => projectService.updateTask(data),
+        mutationFn: (data: UpdateTask) => taskService.updateTask(data),
         onSuccess: () => queryClient.refetchQueries({ queryKey: ['project'] }),
     });
 

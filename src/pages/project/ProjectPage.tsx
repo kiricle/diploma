@@ -1,11 +1,12 @@
 'use client';
+import { columnService } from '@/services/column.service';
 import { projectService } from '@/services/project.service';
 import { Heading } from '@/ui/Heading/Heading';
 import { useMutation, useQuery } from '@tanstack/react-query';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import styles from './ProjectPage.module.scss';
 import { Column } from './ui/Column/Column';
 import { CreateColumn } from './ui/CreateColumn/CreateColumn';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
 export const ProjectPage = ({ params }: { params: { id: number } }) => {
     const { data, isError, isFetching, error, refetch } = useQuery({
@@ -19,7 +20,7 @@ export const ProjectPage = ({ params }: { params: { id: number } }) => {
     const { mutate: changeColumnOrder } = useMutation({
         mutationKey: ['column-order'],
         mutationFn: (data: ChangeColumnOrder) =>
-            projectService.changeColumnOrder(data),
+            columnService.changeColumnOrder(data),
         onSuccess: () => refetch(),
     });
 
