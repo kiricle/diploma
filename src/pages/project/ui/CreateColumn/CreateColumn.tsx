@@ -1,9 +1,9 @@
 import { ModalWindow } from '@/components/ModalWindow/ModalWindow';
 import { useModal } from '@/hooks/useModal';
-import { projectService } from '@/services/project.service';
+import { columnService } from '@/services/column.service';
 import { Button } from '@/ui/Button/Button';
 import { Input } from '@/ui/Input/Input';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -14,7 +14,7 @@ export const CreateColumn = () => {
 
     const { mutate } = useMutation({
         mutationKey: ['create-column'],
-        mutationFn: (data: CreateColumn) => projectService.createColumn(data),
+        mutationFn: (data: CreateColumn) => columnService.createColumn(data),
         retry: false,
         onSuccess: () => queryClient.refetchQueries({ queryKey: ['project'] }),
     });

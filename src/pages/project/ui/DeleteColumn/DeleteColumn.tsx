@@ -1,7 +1,7 @@
-import { projectService } from '@/services/project.service';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import styles from "./DeleteColumn.module.scss"
+import { columnService } from '@/services/column.service';
 import { Button } from '@/ui/Button/Button';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import styles from "./DeleteColumn.module.scss";
 
 export const DeleteColumn = ({
     id,
@@ -14,7 +14,7 @@ export const DeleteColumn = ({
 
     const { mutate: deleteColumn } = useMutation({
         mutationKey: ['column-delete'],
-        mutationFn: (data: DeleteColumn) => projectService.deleteColumn(data),
+        mutationFn: (data: DeleteColumn) => columnService.deleteColumn(data),
         onSuccess: () => queryClient.refetchQueries({ queryKey: ['project'] }),
     });
 
