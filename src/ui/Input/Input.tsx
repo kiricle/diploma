@@ -8,10 +8,17 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
 }
 
-export const Input = ({ name, type, content,register, ...props }: InputProps) => {
+export const Input = ({
+    name,
+    type,
+    content,
+    register,
+    className,
+    ...props
+}: InputProps) => {
     return (
         <label
-            className={styles.label}
+            className={[styles.label, className].join(' ')}
             htmlFor={name}
         >
             {content}

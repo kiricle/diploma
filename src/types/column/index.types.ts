@@ -2,6 +2,8 @@ interface Column {
     id: number;
     order: number;
     title: string;
+    createdAt: Date;
+    updatedAt: Date;
     tasks: Task[];
     projectId: number;
 }

@@ -31,4 +31,44 @@ export const projectService = {
 
         return response.data;
     },
+
+    async inviteCollaborator(data: InviteCollaborator) {
+        const response = await axiosWithAuth.patch<InviteCollaborator>(
+            '/projects/add-collaborator',
+            data
+        );
+
+        return response.data;
+    },
+
+    async changeName(data: ChangeProjectName) {
+        const response = await axiosWithAuth.patch<ChangeProjectName>(
+            '/projects/update-name',
+            data
+        );
+
+        return response.data;
+    },
+
+    async deleteProject(data: DeleteProject) {
+        const response = await axiosWithAuth.delete<DeleteProject>(
+            '/projects/',
+            {
+                data,
+            }
+        );
+
+        return response.data;
+    },
+
+    async deleteCollaborator(data: DeleteCollaborator) {
+        const response = await axiosWithAuth.delete<DeleteProject>(
+            '/projects/collaborator',
+            {
+                data,
+            }
+        );
+
+        return response.data;
+    }
 };
