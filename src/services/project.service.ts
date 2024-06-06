@@ -32,27 +32,27 @@ export const projectService = {
         return response.data;
     },
 
-    async createColumn(data: CreateColumn) {
-        const response = await axiosWithAuth.post<CreateColumn>(
-            '/projects/column',
+    async inviteCollaborator(data: InviteCollaborator) {
+        const response = await axiosWithAuth.patch<InviteCollaborator>(
+            '/projects/add-collaborator',
             data
         );
 
         return response.data;
     },
 
-    async updateColumn(data: UpdateColumn) {
-        const response = await axiosWithAuth.patch<UpdateColumn>(
-            '/projects/column',
+    async changeName(data: ChangeProjectName) {
+        const response = await axiosWithAuth.patch<ChangeProjectName>(
+            '/projects/update-name',
             data
         );
 
         return response.data;
     },
 
-    async deleteColumn(data: DeleteColumn) {
-        const response = await axiosWithAuth.delete<DeleteColumn>(
-            '/projects/column',
+    async deleteProject(data: DeleteProject) {
+        const response = await axiosWithAuth.delete<DeleteProject>(
+            '/projects/',
             {
                 data,
             }
@@ -61,39 +61,14 @@ export const projectService = {
         return response.data;
     },
 
-    async changeColumnOrder(data: ChangeColumnOrder) {
-        const response = await axiosWithAuth.patch<ChangeColumnOrder>(
-            'projects/column-order',
-            data
+    async deleteCollaborator(data: DeleteCollaborator) {
+        const response = await axiosWithAuth.delete<DeleteProject>(
+            '/projects/collaborator',
+            {
+                data,
+            }
         );
 
         return response.data;
-    },
-
-    async createTask(data: CreateTask) {
-        const response = await axiosWithAuth.post<CreateTask>(
-            '/projects/task',
-            data
-        );
-
-        return response.data;
-    },
-
-    async updateTask(data: UpdateTask) {
-        const response = await axiosWithAuth.patch<UpdateTask>(
-            '/projects/task',
-            data
-        );
-
-        return response.data;
-    },
-
-    async deleteTask(data: DeleteTask) {
-        const response = await axiosWithAuth.delete<DeleteTask>(
-            '/projects/task',
-            { data }
-        );
-
-        return response.data;
-    },
+    }
 };

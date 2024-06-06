@@ -1,20 +1,18 @@
-import { Button } from '@/ui/Button/Button';
-import styles from './CreateTask.module.scss';
-import { useParams } from 'next/navigation';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { ModalWindow } from '@/components/ModalWindow/ModalWindow';
 import { useModal } from '@/hooks/useModal';
-import { Heading } from '@/ui/Heading/Heading';
+import { taskService } from '@/services/task.service';
+import { Button } from '@/ui/Button/Button';
 import { Input } from '@/ui/Input/Input';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { projectService } from '@/services/project.service';
+import styles from './CreateTask.module.scss';
 
 export const CreateTask = ({ columnId }: { columnId: number }) => {
     const queryClient = useQueryClient();
 
     const { mutate } = useMutation({
         mutationKey: ['task'],
-        mutationFn: (data: CreateTask) => projectService.createTask(data),
+        mutationFn: (data: CreateTask) => taskService.createTask(data),
         onSuccess: () => queryClient.refetchQueries({ queryKey: ['project'] }),
     });
 
