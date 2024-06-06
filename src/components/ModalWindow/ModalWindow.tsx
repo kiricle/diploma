@@ -1,9 +1,8 @@
 import { Button } from '@/ui/Button/Button';
-import { ReactNode } from 'react';
-import { createPortal } from 'react-dom';
-import styles from './ModalWIndow.module.scss';
-import { Portal } from '../Portal/Portal';
 import { Heading } from '@/ui/Heading/Heading';
+import { ReactNode } from 'react';
+import { Portal } from '../Portal/Portal';
+import styles from './ModalWindow.module.scss';
 
 export const ModalWindow = ({
     visible,
@@ -12,11 +11,13 @@ export const ModalWindow = ({
     children,
     title,
     contentClassName,
+    footer,
 }: {
     visible: boolean;
     onClose: () => void;
     onSubmit: () => void;
     children: ReactNode;
+    footer?: ReactNode;
     title: string;
     contentClassName?: string;
 }) => {
@@ -63,6 +64,8 @@ export const ModalWindow = ({
                             Save
                         </Button>
                     </div>
+
+                    {footer}
                 </div>
             </div>
         </Portal>

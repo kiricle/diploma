@@ -1,0 +1,29 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.avatar {
+    display: grid;
+    place-content: center;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: brown;
+    font-size: 18px;
+    color: white;
+    width: fit-content;
+}
+
+.content {
+    background-color: white;
+    padding: 5px 15px;
+    font-size: 16px;
+    box-shadow: 1px 1px 1px 1px #091e4240;
+}
