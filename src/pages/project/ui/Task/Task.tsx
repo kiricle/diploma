@@ -7,6 +7,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { DeleteTask } from '../DeleteTask/DeleteTask';
 import styles from './Task.module.scss';
+import { Comments } from '../Comments/Comments';
+import { Notify } from 'notiflix';
 
 export const Task = (task: Task) => {
     const { close, show, visible } = useModal();
@@ -18,7 +20,12 @@ export const Task = (task: Task) => {
     const { mutate } = useMutation({
         mutationKey: ['task-update'],
         mutationFn: (data: UpdateTask) => taskService.updateTask(data),
-        onSuccess: () => queryClient.refetchQueries({ queryKey: ['project'] }),
+        onSuccess: () => {
+            Notify.success('Task has been updated.', {
+                clickToClose: true,
+            });
+            queryClient.refetchQueries({ queryKey: ['project'] });
+        },
     });
 
     const submitHandler: SubmitHandler<UpdateTaskForm> = (data) => {
@@ -26,11 +33,9 @@ export const Task = (task: Task) => {
             task.title === data.title &&
             task.description === data.description
         ) {
-            close();
             return;
         }
         mutate({ ...data, id: task.id, columnId: task.columnId });
-        close();
     };
 
     return (
@@ -49,7 +54,35 @@ export const Task = (task: Task) => {
                 visible={visible}
                 title="Edit Task"
                 contentClassName={styles.modalContent}
+                footer={<Comments {...task} />}
             >
+                <Heading
+                    className={styles.timing}
+                    level={5}
+                >
+                    <span>
+                        Created at:{' '}
+                        {new Date(task.createdAt).toLocaleDateString('en-EN', {
+                            hour: '2-digit',
+                            year: 'numeric',
+                            day: '2-digit',
+                            month: 'long',
+                            minute: '2-digit',
+                            second: '2-digit',
+                        })}
+                    </span>
+                    <span>
+                        Updated at:{' '}
+                        {new Date(task.updatedAt).toLocaleDateString('en-EN', {
+                            hour: '2-digit',
+                            year: 'numeric',
+                            day: '2-digit',
+                            month: 'long',
+                            minute: '2-digit',
+                            second: '2-digit',
+                        })}
+                    </span>
+                </Heading>
                 <Input
                     content="Title"
                     register={register}
