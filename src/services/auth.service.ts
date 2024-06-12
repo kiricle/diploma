@@ -11,6 +11,7 @@ export const authService = {
         const { accessToken } = response.data;
         if (accessToken) saveTokenStorage(accessToken);
 
+        console.log(response);
         return response;
     },
 
