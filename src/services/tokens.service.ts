@@ -12,7 +12,7 @@ export const getAccessToken = () => {
 
 export const saveTokenStorage = (accessToken: string) => {
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
-		domain: 'https://diploma-rust.vercel.app/',
+		domain: 'https://diploma-be-production.up.railway.app/',
 		sameSite: 'strict',
 		expires: 1
 	})
