@@ -12,8 +12,6 @@ export const getAccessToken = () => {
 
 export const saveTokenStorage = (accessToken: string) => {
     const result = Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
-        // domain: 'https://diploma-be-production.up.railway.app/',
-        // sameSite: 'none',
         expires: 1,
     });
 

@@ -17,11 +17,6 @@ export const authService = {
         const { accessToken } = response.data;
         if (accessToken) saveTokenStorage(accessToken);
 
-        console.log(response);
-        console.log('acc', accessToken);
-        console.log(Cookies.get(EnumTokens.ACCESS_TOKEN));
-        console.log(getAccessToken());
-
         return response;
     },
 
