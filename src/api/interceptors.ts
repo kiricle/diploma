@@ -5,8 +5,8 @@ import { removeFromStorage } from './../services/tokens.service';
 import { errorCatch } from './error';
 
 const options: CreateAxiosDefaults = {
-    // baseURL: 'https://diploma-be-h706.onrender.com/api',
-    baseURL: 'http://localhost:9000/api',
+    baseURL: 'https://diploma-be-h706.onrgender.com/api',
+    // baseURL: 'http://localhost:9000/api',
     headers: {
         'Content-Type': 'application/json',
     },
