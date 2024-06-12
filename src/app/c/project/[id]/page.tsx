@@ -1,3 +1,3 @@
-import { ProjectPage } from "@/pages/project";
+import { ProjectPage } from "@/domains/project";
 
 export default ProjectPage;

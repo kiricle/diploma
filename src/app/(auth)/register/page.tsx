@@ -1,3 +1,3 @@
-import { RegisterPage } from '@/pages/auth';
+import { RegisterPage } from '@/domains/auth';
 
 export default RegisterPage;
