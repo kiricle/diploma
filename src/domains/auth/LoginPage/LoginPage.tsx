@@ -19,7 +19,7 @@ export const LoginPage = () => {
         mutationKey: ['auth'],
         mutationFn: (data: AuthForm) => authService.login(data),
         onSuccess: () => {
-            push('/c/');
+            // push('/c/');
             console.log('success')
         },
         onError(error) {
