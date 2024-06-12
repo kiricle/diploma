@@ -5,7 +5,7 @@ import { getAccessToken } from '@/services/tokens.service';
 import axios, { type CreateAxiosDefaults } from 'axios';
 
 const options: CreateAxiosDefaults = {
-    baseURL: 'http://localhost:9000/api',
+    baseURL: 'https://diploma-be-production.up.railway.app/api',
     headers: {
         'Content-Type': 'application/json',
     },
