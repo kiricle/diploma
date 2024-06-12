@@ -12,6 +12,9 @@ export const authService = {
         if (accessToken) saveTokenStorage(accessToken);
 
         console.log(response);
+        console.log(accessToken)
+        console.log()
+
         return response;
     },
 
