@@ -3,6 +3,7 @@ import {
     saveTokenStorage,
     removeFromStorage,
     EnumTokens,
+    getAccessToken,
 } from './tokens.service';
 import Cookies from 'js-cookie';
 
@@ -19,6 +20,7 @@ export const authService = {
         console.log(response);
         console.log('acc', accessToken);
         console.log(Cookies.get(EnumTokens.ACCESS_TOKEN));
+        console.log(getAccessToken());
 
         return response;
     },
