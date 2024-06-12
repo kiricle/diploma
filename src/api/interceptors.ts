@@ -1,11 +1,12 @@
 import { authService } from '@/services/auth.service';
-import { removeFromStorage } from './../services/tokens.service';
-import { errorCatch } from './error';
 import { getAccessToken } from '@/services/tokens.service';
 import axios, { type CreateAxiosDefaults } from 'axios';
+import { removeFromStorage } from './../services/tokens.service';
+import { errorCatch } from './error';
 
 const options: CreateAxiosDefaults = {
-    baseURL: 'https://diploma-be-production.up.railway.app/api',
+    // baseURL: 'https://diploma-be-h706.onrender.com/api',
+    baseURL: 'http://localhost:9000/api',
     headers: {
         'Content-Type': 'application/json',
     },

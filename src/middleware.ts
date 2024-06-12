@@ -4,13 +4,13 @@ import { EnumTokens } from './services/tokens.service';
 export async function middleware(request: NextRequest, response: NextResponse) {
     const { url, cookies } = request;
 
-    const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value;
+    const accessToken = cookies.get(EnumTokens.ACCESS_TOKEN)?.value;
 
     const isAuthPage = url.includes('/login') || url.includes('/register');
 
     const isHomePage = url === 'http://localhost:3000/';
 
-    if ((isAuthPage || isHomePage) && refreshToken) {
+    if ((isAuthPage || isHomePage) && accessToken) {
         return NextResponse.redirect(new URL('/c', url));
     }
 
@@ -18,7 +18,7 @@ export async function middleware(request: NextRequest, response: NextResponse) {
         return NextResponse.next();
     }
 
-    if (!refreshToken) {
+    if (!accessToken) {
         return NextResponse.redirect(new URL('/login', url));
     }
 
