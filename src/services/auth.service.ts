@@ -1,6 +1,10 @@
 import { axiosClassic } from '@/api/interceptors';
-import { saveTokenStorage, removeFromStorage, EnumTokens } from './tokens.service';
-import Cookies from 'js-cookie'
+import {
+    saveTokenStorage,
+    removeFromStorage,
+    EnumTokens,
+} from './tokens.service';
+import Cookies from 'js-cookie';
 
 export const authService = {
     async login(data: AuthForm) {
@@ -13,8 +17,8 @@ export const authService = {
         if (accessToken) saveTokenStorage(accessToken);
 
         console.log(response);
-        console.log(accessToken)
-        console.log(Cookies.get(EnumTokens.ACCESS_TOKEN))
+        console.log('acc', accessToken);
+        console.log(Cookies.get(EnumTokens.ACCESS_TOKEN));
 
         return response;
     },
