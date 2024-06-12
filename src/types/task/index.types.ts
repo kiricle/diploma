@@ -1,12 +1,24 @@
 interface Task {
     id: number;
-    createdAt: Date;
-    updateAt: Date;
+    createdAt: string;
+    updatedAt: string;
     columnId: number;
     title: string;
     order: number;
+    comments: TaskComment[];
     description: string;
 }
+
+interface TaskComment {
+    id: number;
+    authorId: number;
+    taskId: number;
+    content: string;
+    author: User;
+    createdAt: string;
+}
+
+type CreateComment = Pick<TaskComment, 'content' | 'taskId'>;
 
 type CreateTask = Pick<Task, 'columnId' | 'title'>;
 

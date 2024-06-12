@@ -20,4 +20,26 @@ export const taskService = {
 
         return response.data;
     },
+
+    async addComment(data: CreateComment) {
+        const response = await axiosWithAuth.post<CreateComment>(
+            '/tasks/comment',
+            data
+        );
+
+        return response.data;
+    },
+
+    async getComments(taskId: number) {
+        const response = await axiosWithAuth.get<TaskComment[]>(
+            '/tasks/comments',
+            {
+                params: {
+                    taskId,
+                },
+            }
+        );
+
+        return response.data;
+    },
 };
