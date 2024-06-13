@@ -1,11 +1,8 @@
 import { axiosClassic } from '@/api/interceptors';
 import {
-    saveTokenStorage,
     removeFromStorage,
-    EnumTokens,
-    getAccessToken,
+    saveTokenStorage
 } from './tokens.service';
-import Cookies from 'js-cookie';
 
 export const authService = {
     async login(data: AuthForm) {

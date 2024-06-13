@@ -7,6 +7,7 @@ import { useMutation } from '@tanstack/react-query';
 import { authService } from '@/services/auth.service';
 import { useRouter } from 'next/navigation';
 import { AuthLink } from '../ui/AuthLink/AuthLink';
+import { Notify } from 'notiflix';
 
 export const LoginPage = () => {
     const { register, handleSubmit, reset } = useForm<AuthForm>({
@@ -22,20 +23,21 @@ export const LoginPage = () => {
             push('/c/');
         },
         onError(error) {
-            console.log(error);
+            Notify.failure(error.message);
         },
     });
 
-    const onSubmit: SubmitHandler<AuthForm> = (
-        data
-    ) => {
+    const onSubmit: SubmitHandler<AuthForm> = (data) => {
         mutate(data);
         reset();
     };
 
     return (
         <main className={styles.main}>
-            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+            <form
+                className={styles.form}
+                onSubmit={handleSubmit(onSubmit)}
+            >
                 <Input
                     content="Email"
                     type="email"

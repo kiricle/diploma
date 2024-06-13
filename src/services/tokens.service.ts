@@ -11,11 +11,9 @@ export const getAccessToken = () => {
 };
 
 export const saveTokenStorage = (accessToken: string) => {
-    const result = Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
+    Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
         expires: 1,
     });
-
-    console.log('res', result);
 };
 
 export const removeFromStorage = () => {
